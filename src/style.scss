@@ -1,0 +1,211 @@
+/*---Breakpoint Variables---*/
+$breakpoint-md: 768px;
+$breakpoint-lg: 991px;
+$breakpoint-lrgr: 1024px;
+$breakpoint-xl: 1200px;
+
+/*---Color Variables---*/
+$primary-color: #000000;
+$secondary-color: #919191;
+$tertiary-color: #43b1e6;
+$quaternary-color: #dadada;
+$quinary-color: #43b1e6;
+
+/*---Transitions---*/
+$primary-ease-hover: all .15s ease;
+
+/*---Base---*/
+body{
+  margin:0px;
+  color:$primary-color;
+}
+
+a{
+  text-decoration:none;
+
+  &:hover{
+    color:#3996c3;
+    transition: $primary-ease-hover;
+  }
+}
+
+.hide{display:none !important}
+
+/*---Header---*/
+.header{
+  border-bottom:1px solid $quaternary-color;
+  box-sizing:border-box;
+  height:74px;
+  padding:15px;
+
+  @media (min-width: $breakpoint-xl) {
+    padding:20px 15px;
+    height:78px;
+  }
+  
+  .header--mobile{
+    display:grid;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    align-items:center;
+
+    @media (min-width: $breakpoint-lrgr) {
+      display:none;
+    }
+
+    .header--mobile--dots{
+      width:40px;
+      height:40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content:center; 
+
+      span{
+        width:5px;
+        height:5px;
+        display:inline-block;
+        background-color:$quaternary-color;
+        border-radius:50%;
+        margin-left:5px;
+
+        &:first-child{
+          margin-left:0px;
+        }
+      }
+    }
+
+    .header--mobile--logo{
+      justify-self:center;
+
+      .header--mobile--logo--img{
+  
+        &.icon-logo{
+          @media (min-width: $breakpoint-md) {
+            display:none;
+          }
+        }
+  
+        &.full-logo{
+          display:none;
+  
+          @media (min-width: $breakpoint-md) {
+            display:block;
+          }
+  
+          @media (min-width: $breakpoint-lrgr) {
+            display:none;
+          }
+        }
+      }
+    }
+  }
+
+  .header--left{
+    display:none;
+    width:auto;
+    align-items: center;
+    float:left;
+
+    @media (min-width: $breakpoint-lrgr) {
+      display:flex;
+    }
+
+    .header--logo{
+      display:block;
+      margin-right:15px;
+    }
+  }
+  
+  .header--right{
+    display:none;
+    float:right;
+    width:auto;
+    align-items:center;
+
+    @media (min-width: $breakpoint-lrgr) {
+      display:flex;
+    }
+  }
+
+  .header--nav{
+    list-style-type:none;
+    margin:0px;
+    padding:0px;
+
+    li{
+      display:inline-block;
+      position:relative;
+
+      .header--nav--item{
+        font-size:16px;
+        display:inline-block;
+        color: $secondary-color;
+        
+        @media (min-width: $breakpoint-lrgr) {
+          padding:10px 5px;
+
+        }
+        @media (min-width: $breakpoint-xl) {
+          padding:10px;
+          font-size:18px;
+        }
+
+        &:hover{
+          color:$tertiary-color;
+        }
+
+        &#cart-button::after{
+          content:'1';
+          left:16px;
+          background-color:$tertiary-color;
+          color:white;
+          border-radius:50%;
+          font-size:12px;
+          font-weight:bold;
+          height:15px;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          line-height:15px;
+          padding:1px;
+          position:absolute;
+          top:0px;
+          min-width:15px;
+        }
+
+        &.covid-item{
+          color:$tertiary-color;
+
+          &:hover{
+            color:#3996c3;
+          }
+        }
+
+        &.header--search--input--wrapper{
+          padding:6px;
+
+          .header--search--input{
+            border-radius: 5px;
+            border: 2px solid #dadada;
+            color: #919191;
+            padding: 5px 10px;
+            max-width: 100px;
+            background-position: 95% center;
+            background-repeat: no-repeat;
+            background-size: 18px;
+
+            &::placeholder{
+              color:$quaternary-color;
+            }
+          }
+        }
+
+        .header--nav--item--icon{
+          height: 15px;
+          width: 15px;
+          margin-right:5px;
+          fill:$quaternary-color;
+        }
+      }
+    }
+  }
+}
