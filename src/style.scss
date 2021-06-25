@@ -11,11 +11,11 @@ $secondary-color: #919191;
 $tertiary-color: #43b1e6;
 $quaternary-color: #dadada;
 $quinary-color: #43b1e6;
+$senary-color: #282828;
 $link-hover-color: #3996c3;
 
 /*---Transitions---*/
 $primary-ease-transition: all .15s ease;
-
 /*---Base---*/
 body{
   margin:0px;
@@ -49,12 +49,37 @@ a{
   display: block;
 }
 
+/*---Buttons---*/
+.btn{
+  display:inline-block;
+  font-size:14px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  line-height: 24px;
+  padding: 3px 24px;
+  text-align: center;
+  transition: $primary-ease-transition;
+  background: $tertiary-color;
+  border: 1px solid $tertiary-color;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  vertical-align: top;
+
+  &:hover{
+    border-color: $link-hover-color;
+    background: $link-hover-color;
+    color: #fff;
+  }
+}
+
 /*---Header---*/
 .header{
   border-bottom:1px solid $quaternary-color;
   box-sizing:border-box;
   height:69px;
   padding: 14px 15px;
+  color: $secondary-color;
 
   @media (min-width: $breakpoint-1024) {
     padding: 19px 15px;
@@ -331,6 +356,77 @@ a{
         ul{
           padding:0px;
         }
+        .header--nav--submenu--footer{
+          border-top:2px solid $quaternary-color;
+          
+          .account-submenu--logout{
+            transition: $primary-ease-transition;
+            display: block;
+            font-size: 16px;
+            padding: 14px 0 14px 26px;
+            text-decoration: none;
+            width: 100%;
+          }
+        }
+      }
+
+      &.cart-submenu{
+        width: 420px;
+        left: -233px;
+        text-align: center;
+
+        ul{
+          padding:0px;
+
+          .cart-submenu--item{
+            width: 100%;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position:relative;
+            border-bottom: 2px solid $quaternary-color;
+            overflow: hidden;
+            padding: 10px 20px 12px 20px;
+
+            .cart-submenu--item--img{
+              width:46px;
+              height:46px;
+              border-radius:3px;
+              overflow:hidden;
+              position:absolute;
+            }
+
+            .cart-submenu--item--info{
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              min-height: 46px;
+              min-width: 0;
+              padding-left: 56px;
+              text-align: left;
+
+              .cart-submenu--item--title{
+                color:$senary-color;
+
+                &:hover{
+                  color:$tertiary-color;
+                }
+              }
+
+              .cart-submenu--item--artist{
+                color:$secondary-color;
+
+                &:hover{
+                  color:$tertiary-color;
+                }
+              }
+            }
+          }
+        }
+        .btn--view-cart{
+          margin:12px auto;
+        }
       }
 
       .header--nav--submenu--header{
@@ -347,7 +443,7 @@ a{
             font-size:16px;
 
             #header_credits{
-              color: #282828;
+              color: $senary-color;
               font-size: 28px;
               margin: 0 10px 0 0;
             }
