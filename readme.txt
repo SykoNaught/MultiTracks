@@ -16,6 +16,6 @@ Packages Used
 How To Run
 ----------
 * Navigate to the root of the Project
-* Open a Git Terminal
-* Type NPM Install
-* Type NPM Start
+* Open Terminal (Git Bash)
+* npm install
+* npm start
